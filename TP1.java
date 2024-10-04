@@ -1,23 +1,30 @@
 import java.util.Scanner;
 public class TP1 {
+ 
   public static void main(String[] args){
     System.out.println("\t<<WELCOME TO YOUR CONVERTER>>>");
-    Scanner sc=new Scanner(System.in);
-    String str=sc.nextLine();
+    try(Scanner scanner=new Scanner(System.in);){
+    String str=new String();
     do {
-      System.out.println("Choisissez 'O' si vous voulez convertir du degré C vers F et 'N' si l'inverse? ");
-    }while (str=="O" || str=="N");
-    if (str=="O"){
-      System.out.println("entrer le degé en C :");
-      int d=sc.nextInt();
-      int c=(9/5)*d+32;
-      System.out.println("La température en F est : "+c);
-    }else{
-      System.out.println("entrer le degé en F :");
-      int d=sc.nextInt();
-      int c=((d-32)*5)/9;
-      System.out.println("La température en F est : "+c);
-    }
+      System.out.println("\n\nChoisissez 'O' si vous voulez convertir du degré C vers F et 'N' si l'inverse? ");
+      str= scanner.nextLine();
+    }while (!str.equalsIgnoreCase("O") && !str.equalsIgnoreCase("N"));
+    int tr=str.equalsIgnoreCase("O")?1:0;
+    switch (tr){
+      case 1:
+        System.out.println("\nentrer le degé en C :");
+        int d=scanner.nextInt();
+        int c=(9/5)*d+32;
+        System.out.println("\n\nLa température en F est : "+c);
+        break;
+      case 0:
+        System.out.println("\nentrer le degé en F :");
+        d=scanner.nextInt();
+        c=((d-32)*5)/9;
+        System.out.println("\n\nLa température en F est : "+c);
+        break;
+      default :
+        break;
+      }  }
   }
-
 }
