@@ -4,7 +4,9 @@ public class TP1 {
   public static void main(String[] args){
     System.out.println("\t<<WELCOME TO YOUR CONVERTER>>>");
     try(Scanner scanner=new Scanner(System.in);){
-    String str=new String();
+      String reconv;
+      String str;
+    do{
     do {
       System.out.println("\n\nChoisissez 'O' si vous voulez convertir du degré C vers F et 'N' si l'inverse? ");
       str= scanner.nextLine();
@@ -25,6 +27,12 @@ public class TP1 {
         break;
       default :
         break;
-      }  }
+      } 
+      scanner.nextLine();
+      System.out.println("est ce que tu veux reconvertir O|N?");
+      reconv=scanner.nextLine();
+    }while(reconv.equalsIgnoreCase("O"));
+    System.out.println("on se revoie une autre fois");
+    }
   }
 }
