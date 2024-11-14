@@ -1,0 +1,1 @@
+System.out.println("c'est l'element d'indice "+i+" de valeur : "+array.get(i));
